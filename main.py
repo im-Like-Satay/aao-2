@@ -49,4 +49,4 @@ def health():
 
 
 # flapp pakai middleware WSGI trs di mount ke fast_app
-fast_app.mount("/", WSGIMiddleware(flapp))
+fast_app.mount("/", WSGIMiddleware(app))
