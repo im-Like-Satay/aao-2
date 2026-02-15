@@ -1,11 +1,12 @@
 from contextlib import asynccontextmanager
 
-# from time import sleep
-from aiAgent import input_req
 from fastapi import FastAPI
 from fastapi.middleware.wsgi import WSGIMiddleware
 from flask import Flask, render_template
 from flask_cors import CORS
+
+# from time import sleep
+from aiAgent import input_req
 from SU import search_web
 from until.response import response
 
@@ -16,12 +17,12 @@ async def lifespan(app: FastAPI):
     yield
 
 
-flapp = Flask(__name__)
+app = Flask(__name__)
 fast_app = FastAPI()
-CORS(flapp)
+CORS(app)
 
 
-@flapp.route("/api/invest/<target>")
+@app.route("/api/invest/<target>")
 def mikir(target):
     try:
         agent = input_req(target)
