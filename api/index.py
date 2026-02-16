@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask_cors import CORS
 
 from aiAgent import input_req
-from SU import search_web
 from until.response import response
 
 app = Flask(__name__)
@@ -23,11 +22,6 @@ def mikir(target):
 @app.get("/")
 def index():
     return render_template("index.html")
-
-
-@app.get("/api/search-user/{target}")
-def search(target: str):
-    return search_web(target, True)
 
 
 @app.get("/api/")
